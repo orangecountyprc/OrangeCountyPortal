@@ -12,22 +12,25 @@
     <span>Orange County, Florida · Transportation Updates</span>
   </div>
 
-  <header class="site-header">
-    <div class="header-left">
-      <img src="images/orange-county-seal.png" alt="Orange County Seal" class="header-seal">
-      <div class="header-text">
-        <h1>Orange County, Florida</h1>
-        <p>Road Conditions & Closures</p>
-      </div>
-    </div>
-    <nav class="site-nav">
-      <a href="index.html" class="nav-link">Home</a>
-      <a href="news.html" class="nav-link">News</a>
-      <a href="weather-alerts.html" class="nav-link">Weather & Alerts</a>
-      <a href="road-conditions.html" class="nav-link active">Road Conditions</a>
-      <a href="departments.html" class="nav-link">Departments</a>
-    </nav>
-  </header>
+<header class="navbar">
+  <div id="countyAnnouncement" class="announcement-bar slide-down" style="display:none;">
+    <p id="announcementText"></p>
+    <button id="announcementClose" class="announcement-close">×</button>
+  </div>
+
+  <div class="nav-logo">
+    <img src="images/orange-county-seal.png" class="nav-seal">
+    Orange County, FL
+  </div>
+
+  <nav class="nav-links">
+    <a href="index.html">Home</a>
+    <a href="departments.html">Departments</a>
+    <a href="news.html">News</a>
+    <a href="weather-alerts.html">Weather Alerts</a>
+    <a href="road-conditions.html" class="active">Road Conditions</a>
+  </nav>
+</header>
 
   <div id="countyAnnouncement" class="announcement-bar">
     <strong>County Notice</strong>
@@ -63,4 +66,5 @@
 </div>
 <script src="script.js"></script>
 </body>
+
 </html>
