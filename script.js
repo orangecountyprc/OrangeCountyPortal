@@ -289,14 +289,15 @@ ${formatBodyToParagraphs(body)}
     outputSection.style.display = "block";
   }
 
-  const entry = {
-    title,
-    department,
-    date: formattedDate,
-    summary,
-    body,
-    file: filename
-  };
+const entry = {
+  title,
+  department,
+  date: formattedDate,
+  summary,
+  body,
+  file: filename,
+  html // <-- THIS IS THE FIX
+};
 
   publishPressRelease(entry);
 }
@@ -330,3 +331,4 @@ document.addEventListener("DOMContentLoaded", function () {
   initWeatherPage();
   ocInitPressReleaseGenerator();
 });
+
