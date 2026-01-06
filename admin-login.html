@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Administrator Login · Orange County, Florida</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body class="admin-bg">
+<div class="admin-login-wrapper">
+  <div class="admin-login-card">
+    <div class="admin-login-header">
+      <img src="images/orange-county-seal.png" alt="Orange County Seal" class="admin-login-seal">
+      <div>
+        <h2 class="admin-login-title">Administrator Access</h2>
+        <p class="admin-login-sub">Orange County Public Information Portal</p>
+      </div>
+    </div>
+
+    <form id="adminLoginForm" class="admin-form">
+      <div class="admin-form-group">
+        <label for="admin-password">Administrator Password</label>
+        <input type="password" id="admin-password" autocomplete="off" required>
+      </div>
+      <button type="submit" class="admin-login-btn">Sign In</button>
+      <div id="admin-login-error" class="admin-login-error">
+        The password you entered is not recognized. Please verify your credentials and try again.
+      </div>
+    </form>
+  </div>
+</div>
+<script src="script.js"></script>
+</body>
+</html>

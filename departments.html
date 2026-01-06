@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>County Departments · Orange County, Florida</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+<div class="site-wrapper">
+  <div class="top-bar">
+    <span>Orange County, Florida · County Departments</span>
+  </div>
+
+  <header class="site-header">
+    <div class="header-left">
+      <img src="images/orange-county-seal.png" alt="Orange County Seal" class="header-seal">
+      <div class="header-text">
+        <h1>Orange County, Florida</h1>
+        <p>County Departments & Offices</p>
+      </div>
+    </div>
+    <nav class="site-nav">
+      <a href="index.html" class="nav-link">Home</a>
+      <a href="news.html" class="nav-link">News</a>
+      <a href="weather-alerts.html" class="nav-link">Weather & Alerts</a>
+      <a href="road-conditions.html" class="nav-link">Road Conditions</a>
+      <a href="departments.html" class="nav-link active">Departments</a>
+    </nav>
+  </header>
+
+  <div id="countyAnnouncement" class="announcement-bar">
+    <strong>County Notice</strong>
+    <span id="announcementText"></span>
+    <button id="announcementClose" class="announcement-close" aria-label="Dismiss announcement">×</button>
+  </div>
+
+  <main class="main-content">
+    <section class="content">
+      <div class="content-inner">
+        <h2 class="section-title">County Departments & Offices</h2>
+        <p class="section-sub">Core functions serving Orange County residents and businesses.</p>
+
+        <div class="department-grid">
+          <div class="department-card">
+            <h3>Office of the Mayor</h3>
+            <p>Executive leadership and policy direction for Orange County Government.</p>
+          </div>
+          <div class="department-card">
+            <h3>Public Safety</h3>
+            <p>Includes Fire Rescue, Corrections, Emergency Management, and related public safety services.</p>
+          </div>
+          <div class="department-card">
+            <h3>Public Works</h3>
+            <p>Roadways, traffic engineering, stormwater, and infrastructure maintenance.</p>
+          </div>
+          <div class="department-card">
+            <h3>Utilities</h3>
+            <p>Water, wastewater, and solid waste services for Orange County customers.</p>
+          </div>
+          <div class="department-card">
+            <h3>Parks & Recreation</h3>
+            <p>County parks, trails, recreational programming, and community centers.</p>
+          </div>
+          <div class="department-card">
+            <h3>Community & Family Services</h3>
+            <p>Human services, housing support, and neighborhood programs.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="footer-inner">
+      <span>© Orange County Government, Florida</span>
+      <span>Administration & County Departments</span>
+    </div>
+  </footer>
+</div>
+<script src="script.js"></script>
+</body>
+</html>
