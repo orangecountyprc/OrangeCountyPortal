@@ -4,11 +4,13 @@
   <meta charset="UTF-8">
   <title>Create Press Release · Orange County, Florida</title>
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <link rel="stylesheet" href="/style.css">
+  <!-- IMPORTANT: no leading slash; file is in same folder as this HTML -->
+  <link rel="stylesheet" href="style.css">
 </head>
 <body class="admin-bg" onload="ocCheckAdminAuth()">
 <header class="admin-header">
   <div class="admin-header-inner">
+    <!-- IMPORTANT: images folder is also at project root -->
     <img src="images/orange-county-seal.png" alt="Orange County Seal" class="admin-seal">
     <div>
       <h1 class="admin-site-title">Orange County, Florida · Admin</h1>
@@ -30,8 +32,7 @@
     <h2>Create Press Release</h2>
     <p class="admin-intro">
       Complete the fields below to generate a formatted press release HTML file. After generation,
-      copy the HTML into a new file in the <code>/press/</code> directory and update
-      <code>data/news.json</code> with the new entry.
+      the system will publish the release and update <code>data/news.json</code> so it appears on the public news page.
     </p>
 
     <div class="press-form">
@@ -66,24 +67,23 @@
         <input type="text" id="pr-contact" placeholder="Name, title, phone, email">
       </div>
 
-      <!-- UPDATED BUTTON LABEL BELOW -->
-      <button id="pr-generate-btn" class="press-generate-btn">Generate & Publish Press Release</button>
-
+      <button id="pr-generate-btn" class="press-generate-btn">
+        Generate & Publish Press Release
+      </button>
     </div>
 
     <div id="pr-output-section" class="press-output-section" style="display:none;">
       <h3>Generated HTML</h3>
       <p style="font-size:12px;color:#cdd3f0;">
-        Copy all of the content below into a new file in the <code>/press/</code> folder of your site.
-        Use a filename such as <code>YYYY-MM-DD-title.html</code>, then add a record to
-        <code>data/news.json</code> so it appears on the public news page.
+        A copy of this release is also being published automatically to your GitHub repository
+        under the <code>/press/</code> folder and registered in <code>data/news.json</code>.
       </p>
       <textarea id="pr-output" readonly></textarea>
     </div>
   </section>
 </main>
+
+<!-- script.js is also at project root -->
 <script src="script.js"></script>
 </body>
 </html>
-
-
