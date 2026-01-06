@@ -1,16 +1,9 @@
 [
   {
-    "title": "Severe Thunderstorm Warning",
-    "type": "Weather Alert",
-    "severity": "Severe",
-    "time": "Issued 3:42 PM",
-    "description": "Strong thunderstorms capable of producing damaging winds and hail are moving through central Orange County."
-  },
-  {
-    "title": "Heat Advisory",
-    "type": "Public Safety Advisory",
-    "severity": "Moderate",
-    "time": "Issued 11:00 AM",
-    "description": "Heat index values may reach 108°F this afternoon. Stay hydrated and limit outdoor activity."
+    "title": "No Active Weather Alerts for Orange County",
+    "severity": "advisory",
+    "issued": "2026-01-05 08:00 AM",
+    "source": "Orange County Emergency Management",
+    "body": "There are currently no active severe weather alerts in effect for Orange County. Residents should remain weather-aware and monitor local media for routine forecasts."
   }
 ]
