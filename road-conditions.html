@@ -2,69 +2,76 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <title>Road Conditions & Closures · Orange County, Florida</title>
+  <title>Road Conditions – Orange County, FL</title>
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <link rel="stylesheet" href="style.css">
 </head>
-<body>
+
+<body class="gov-bg fade-in">
 <div class="site-wrapper">
-  <div class="top-bar">
-    <span>Orange County, Florida · Transportation Updates</span>
-  </div>
 
-<header class="navbar">
-  <div id="countyAnnouncement" class="announcement-bar slide-down" style="display:none;">
-    <p id="announcementText"></p>
-    <button id="announcementClose" class="announcement-close">×</button>
-  </div>
+  <!-- NAVIGATION -->
+  <header class="navbar">
+    <div id="countyAnnouncement" class="announcement-bar slide-down" style="display:none;">
+      <p id="announcementText"></p>
+      <button id="announcementClose" class="announcement-close">×</button>
+    </div>
 
-  <div class="nav-logo">
-    <img src="images/orange-county-seal.png" class="nav-seal">
-    Orange County, FL
-  </div>
+    <div class="nav-logo">
+      <img src="images/orange-county-seal.png" class="nav-seal">
+      Orange County, FL
+    </div>
 
-  <nav class="nav-links">
-    <a href="index.html">Home</a>
-    <a href="departments.html">Departments</a>
-    <a href="news.html">News</a>
-    <a href="weather-alerts.html">Weather Alerts</a>
-    <a href="road-conditions.html" class="active">Road Conditions</a>
-  </nav>
-</header>
+    <nav class="nav-links">
+      <a href="index.html">Home</a>
+      <a href="departments.html">Departments</a>
+      <a href="news.html">News</a>
+      <a href="weather-alerts.html">Weather Alerts</a>
+      <a href="road-conditions.html" class="active">Road Conditions</a>
+    </nav>
+  </header>
 
-  <div id="countyAnnouncement" class="announcement-bar">
-    <strong>County Notice</strong>
-    <span id="announcementText"></span>
-    <button id="announcementClose" class="announcement-close" aria-label="Dismiss announcement">×</button>
-  </div>
+  <!-- PAGE CONTENT -->
+  <section class="content">
+    <div class="content-inner">
+      <h2>Road Conditions</h2>
+      <p class="section-sub">Closures, construction, and traffic impact updates across Orange County.</p>
 
-  <main class="main-content">
-    <section class="content">
-      <div class="content-inner">
-        <h2 class="section-title">Road Conditions & Closures</h2>
-        <p class="section-sub">Information provided by Orange County Public Works and partner agencies.</p>
+      <div id="roadList" class="alert-list"></div>
+    </div>
+  </section>
 
-        <div class="alert-list">
-          <div class="alert-item alert-severity-advisory">
-            <h3 class="alert-title">No major countywide closures reported</h3>
-            <div class="alert-meta">Updated daily by Orange County Public Works</div>
-            <div class="alert-body">
-              For real-time traffic conditions, check FDOT and local law enforcement travel advisories.
-            </div>
-          </div>
-        </div>
-      </div>
-    </section>
-  </main>
-
+  <!-- FOOTER -->
   <footer class="site-footer">
     <div class="footer-inner">
       <span>© Orange County Government, Florida</span>
-      <span>Public Works · Transportation</span>
+      <span>Public Works Division · Road & Infrastructure Services</span>
     </div>
   </footer>
-</div>
-<script src="script.js"></script>
-</body>
 
+</div>
+
+<script>
+  // Load Road Conditions
+  fetch("data/closures.json")
+    .then(res => res.json())
+    .then(closures => {
+      const list = document.getElementById("roadList");
+
+      closures.forEach(item => {
+        const div = document.createElement("div");
+        div.className = "alert-item";
+
+        div.innerHTML = `
+          <h3 class="alert-title">${item.road}</h3>
+          <p class="alert-meta">${item.status}</p>
+          <p class="alert-body">${item.details}</p>
+        `;
+
+        list.appendChild(div);
+      });
+    });
+</script>
+
+</body>
 </html>
