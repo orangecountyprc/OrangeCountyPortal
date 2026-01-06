@@ -49,7 +49,8 @@ function initAnnouncementBar() {
 
   if (!bar || !text || !closeBtn) return;
 
-  fetch("data/announcement.json")
+  // Cache-busted fetch to avoid stale announcements
+  fetch("data/announcement.json?nocache=" + Date.now())
     .then(res => res.json())
     .then(data => {
       if (!data.active) return;
@@ -83,7 +84,8 @@ function initNewsPage() {
   const container = document.getElementById("newsList");
   if (!container) return;
 
-  fetch("data/news.json")
+  // Cache-busted fetch so Latest Releases always reflect the current news.json
+  fetch("data/news.json?nocache=" + Date.now())
     .then(res => res.json())
     .then(items => {
       container.innerHTML = "";
@@ -132,7 +134,8 @@ function initWeatherPage() {
   const container = document.getElementById("weatherAlertsList");
   if (!container) return;
 
-  fetch("data/weather.json")
+  // Cache-busted fetch so weather alerts update immediately
+  fetch("data/weather.json?nocache=" + Date.now())
     .then(res => res.json())
     .then(items => {
       container.innerHTML = "";
@@ -289,17 +292,17 @@ ${formatBodyToParagraphs(body)}
     outputSection.style.display = "block";
   }
 
-const entry = {
-  title,
-  department,
-  date: formattedDate,
-  summary,
-  body,
-  file: filename,
-  html // <-- REQUIRED
-};
+  const entry = {
+    title,
+    department,
+    date: formattedDate,
+    summary,
+    body,
+    file: filename,
+    html // full HTML document sent to Worker
+  };
 
-publishPressRelease(entry);
+  publishPressRelease(entry);
 }
 
 // =========================
@@ -321,7 +324,7 @@ function formatBodyToParagraphs(text) {
 }
 
 // =========================
-// GLOBAL INIT
+— GLOBAL INIT
 // =========================
 
 document.addEventListener("DOMContentLoaded", function () {
@@ -331,5 +334,3 @@ document.addEventListener("DOMContentLoaded", function () {
   initWeatherPage();
   ocInitPressReleaseGenerator();
 });
-
-
