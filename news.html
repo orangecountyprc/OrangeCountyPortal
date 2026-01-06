@@ -10,16 +10,25 @@
 <body class="gov-bg fade-in">
 
   <!-- HEADER -->
-  <header class="navbar">
-    <div class="nav-logo">Orange County, FL</div>
-    <nav class="nav-links">
-      <a href="orange-county-official-portal.html">Home</a>
-      <a href="departments.html">Departments</a>
-      <a href="news.html" class="active">News</a>
-      <a href="weather-alerts.html">Weather Alerts</a>
-      <a href="road-conditions.html">Road Conditions</a>
-    </nav>
-  </header>
+<header class="navbar">
+  <div id="countyAnnouncement" class="announcement-bar slide-down" style="display:none;">
+    <p id="announcementText"></p>
+    <button id="announcementClose" class="announcement-close">×</button>
+  </div>
+
+  <div class="nav-logo">
+    <img src="images/orange-county-seal.png" class="nav-seal">
+    Orange County, FL
+  </div>
+
+  <nav class="nav-links">
+    <a href="index.html">Home</a>
+    <a href="departments.html">Departments</a>
+    <a href="news.html" class="active">News</a>
+    <a href="weather-alerts.html">Weather Alerts</a>
+    <a href="road-conditions.html">Road Conditions</a>
+  </nav>
+</header>
 
   <!-- HERO -->
   <section class="hero small-hero">
@@ -85,4 +94,5 @@
   </script>
 
 </body>
+
 </html>
