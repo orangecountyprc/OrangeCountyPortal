@@ -92,28 +92,30 @@ function initNewsPage() {
         return;
       }
 
+      // Sort newest first
+      items.sort((a, b) => new Date(b.date) - new Date(a.date));
+
       items.forEach(item => {
-        const div = document.createElement("div");
-        div.className = "news-item";
+        const card = document.createElement("a");
+        card.href = `press/${item.file}`;
+        card.className = "news-card";
 
-        const titleEl = document.createElement("h3");
-        titleEl.className = "news-item-title";
-        titleEl.textContent = item.title;
+        const date = new Date(item.date).toLocaleDateString("en-US", {
+          year: "numeric",
+          month: "long",
+          day: "numeric"
+        });
 
-        const metaEl = document.createElement("div");
-        metaEl.className = "news-item-meta";
-        metaEl.textContent = `${item.date} · ${item.department}`;
+        card.innerHTML = `
+          <div class="news-card-content">
+            <p class="news-date">${date}</p>
+            <h3 class="news-title">${item.title}</h3>
+            <p class="news-dept">${item.department}</p>
+            <span class="news-readmore">Read More →</span>
+          </div>
+        `;
 
-        const linkEl = document.createElement("a");
-        linkEl.className = "news-item-link";
-        linkEl.href = `press/${item.file}`;
-        linkEl.textContent = "View full release";
-
-        div.appendChild(titleEl);
-        div.appendChild(metaEl);
-        div.appendChild(linkEl);
-
-        container.appendChild(div);
+        container.appendChild(card);
       });
     })
     .catch(err => {
@@ -227,24 +229,14 @@ function ocGeneratePressRelease() {
     day: "numeric"
   });
 
-  // =========================
-  // AUTO SUMMARY (Option A)
-  // =========================
   const firstSentenceMatch = body.match(/[^.!?]*[.!?]/);
   const summary = firstSentenceMatch ? firstSentenceMatch[0].trim() : body.substring(0, 150);
 
-  // =========================
-  // AUTO FILENAME
-  // =========================
   const slug = title.toLowerCase()
     .replace(/[^a-z0-9]+/g, "-")
     .replace(/^-+|-+$/g, "");
 
   const filename = `${date}-${slug}.html`;
-
-  // =========================
-  // GENERATE HTML
-  // =========================
 
   const html = `<!DOCTYPE html>
 <html lang="en">
@@ -296,10 +288,6 @@ ${formatBodyToParagraphs(body)}
     outputArea.value = html;
     outputSection.style.display = "block";
   }
-
-  // =========================
-  // SEND TO WORKER API
-  // =========================
 
   const entry = {
     title,
