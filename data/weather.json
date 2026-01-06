@@ -1,7 +1,10 @@
-{
+[
+ {
   "title": "Severe Thunderstorm Warning",
   "type": "Weather Alert",
   "severity": "severe",
   "time": "Issued 4:28 PM",
   "description": "A dangerous thunderstorm is moving through Orange County with damaging winds over 60 mph, large hail, and frequent lightning. Seek sturdy shelter immediately and avoid travel until conditions improve."
 }
+]
+
