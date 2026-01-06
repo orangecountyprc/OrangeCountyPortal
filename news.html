@@ -61,7 +61,7 @@
     fetch("data/news.json")
       .then(response => response.json())
       .then(data => {
-        const grid = document.getElementById("newsGrid");
+        const grid = document.getElementById("newsList");
 
         data.sort((a, b) => new Date(b.date) - new Date(a.date));
 
@@ -96,4 +96,5 @@
 </body>
 
 </html>
+
 
