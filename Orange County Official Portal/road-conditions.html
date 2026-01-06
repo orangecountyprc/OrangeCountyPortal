@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Road Conditions & Closures · Orange County, Florida</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+<div class="site-wrapper">
+  <div class="top-bar">
+    <span>Orange County, Florida · Transportation Updates</span>
+  </div>
+
+  <header class="site-header">
+    <div class="header-left">
+      <img src="images/orange-county-seal.png" alt="Orange County Seal" class="header-seal">
+      <div class="header-text">
+        <h1>Orange County, Florida</h1>
+        <p>Road Conditions & Closures</p>
+      </div>
+    </div>
+    <nav class="site-nav">
+      <a href="index.html" class="nav-link">Home</a>
+      <a href="news.html" class="nav-link">News</a>
+      <a href="weather-alerts.html" class="nav-link">Weather & Alerts</a>
+      <a href="road-conditions.html" class="nav-link active">Road Conditions</a>
+      <a href="departments.html" class="nav-link">Departments</a>
+    </nav>
+  </header>
+
+  <div id="countyAnnouncement" class="announcement-bar">
+    <strong>County Notice</strong>
+    <span id="announcementText"></span>
+    <button id="announcementClose" class="announcement-close" aria-label="Dismiss announcement">×</button>
+  </div>
+
+  <main class="main-content">
+    <section class="content">
+      <div class="content-inner">
+        <h2 class="section-title">Road Conditions & Closures</h2>
+        <p class="section-sub">Information provided by Orange County Public Works and partner agencies.</p>
+
+        <div class="alert-list">
+          <div class="alert-item alert-severity-advisory">
+            <h3 class="alert-title">No major countywide closures reported</h3>
+            <div class="alert-meta">Updated daily by Orange County Public Works</div>
+            <div class="alert-body">
+              For real-time traffic conditions, check FDOT and local law enforcement travel advisories.
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="footer-inner">
+      <span>© Orange County Government, Florida</span>
+      <span>Public Works · Transportation</span>
+    </div>
+  </footer>
+</div>
+<script src="script.js"></script>
+</body>
+</html>

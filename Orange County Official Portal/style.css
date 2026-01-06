@@ -1,0 +1,830 @@
+/* ============================================================
+   GLOBAL STYLES – ORANGE COUNTY, FLORIDA
+   Cinematic + Official Government Look
+   ============================================================ */
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+html,
+body {
+  margin: 0;
+  padding: 0;
+  font-family: "Inter", system-ui, -apple-system, BlinkMacSystemFont, sans-serif;
+  background-color: #05070a;
+  color: #f4f5fb;
+}
+
+body {
+  min-height: 100vh;
+}
+
+/* Layout */
+
+.site-wrapper {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
+.main-content {
+  flex: 1;
+}
+
+/* Top bar */
+
+.top-bar {
+  background: #020308;
+  border-bottom: 1px solid #141824;
+  color: #d0d4ea;
+  font-size: 12px;
+  padding: 4px 32px;
+  display: flex;
+  justify-content: flex-end;
+  gap: 18px;
+}
+
+.top-bar span {
+  opacity: 0.85;
+}
+
+/* Header & nav */
+
+.site-header {
+  background: radial-gradient(circle at top left, #1a2237 0, #05070a 55%);
+  border-bottom: 1px solid #171b2a;
+  padding: 16px 32px 12px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.header-left {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+}
+
+.header-seal {
+  width: 64px;
+  height: 64px;
+  object-fit: contain;
+}
+
+.header-text h1 {
+  margin: 0;
+  font-size: 22px;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+}
+
+.header-text p {
+  margin: 2px 0 0;
+  font-size: 13px;
+  color: #aeb6d8;
+}
+
+.site-nav {
+  display: flex;
+  gap: 10px;
+}
+
+.nav-link {
+  padding: 8px 14px;
+  border-radius: 999px;
+  font-size: 13px;
+  color: #e0e3f2;
+  text-decoration: none;
+  border: 1px solid transparent;
+  background: rgba(9, 12, 24, 0.8);
+  backdrop-filter: blur(12px);
+  transition: 0.2s ease;
+}
+
+.nav-link:hover {
+  border-color: #ffb04d;
+  background: rgba(13, 17, 32, 0.95);
+}
+
+.nav-link.active {
+  border-color: #ff7a00;
+  color: #ffb04d;
+}
+
+/* Announcement bar */
+
+.announcement-bar {
+  display: none;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  padding: 8px 22px;
+  font-size: 13px;
+  color: #1b1205;
+  background: #ffb04d;
+}
+
+.announcement-bar strong {
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  font-size: 11px;
+}
+
+.announcement-close {
+  margin-left: 10px;
+  border: none;
+  background: transparent;
+  font-size: 14px;
+  cursor: pointer;
+  color: #402b0b;
+}
+
+/* Hero (homepage) */
+
+.hero {
+  position: relative;
+  padding: 40px 32px 32px;
+  background:
+    radial-gradient(circle at top left, rgba(255, 122, 0, 0.18), transparent 55%),
+    radial-gradient(circle at top right, rgba(29, 78, 216, 0.28), transparent 55%),
+    linear-gradient(to bottom, #05070a 0%, #05070a 50%, #05070a 100%);
+  border-bottom: 1px solid #141824;
+}
+
+.hero-inner {
+  max-width: 1080px;
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: 1.4fr 1fr;
+  gap: 32px;
+  align-items: center;
+}
+
+.hero-badge {
+  font-size: 11px;
+  text-transform: uppercase;
+  letter-spacing: 0.16em;
+  color: #ffe0b3;
+  margin-bottom: 6px;
+}
+
+.hero-title {
+  font-size: 32px;
+  margin: 0 0 8px;
+}
+
+.hero-subtitle {
+  margin: 0 0 18px;
+  font-size: 14px;
+  color: #c5c9e4;
+  max-width: 520px;
+}
+
+.hero-quick-links {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  margin-bottom: 14px;
+}
+
+.hero-link {
+  font-size: 13px;
+  padding: 8px 12px;
+  border-radius: 999px;
+  border: 1px solid rgba(255, 176, 77, 0.4);
+  background: rgba(5, 7, 10, 0.9);
+  color: #ffe1bf;
+  text-decoration: none;
+  transition: 0.2s ease;
+}
+
+.hero-link:hover {
+  border-color: #ffb04d;
+  background: #0c1016;
+}
+
+.hero-note {
+  font-size: 12px;
+  color: #aeb6d8;
+}
+
+.hero-panel {
+  background: rgba(7, 10, 18, 0.95);
+  border-radius: 14px;
+  border: 1px solid #262b3e;
+  padding: 16px 16px 14px;
+  box-shadow: 0 18px 42px rgba(0, 0, 0, 0.6);
+}
+
+.hero-panel-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 10px;
+}
+
+.hero-panel-title {
+  font-size: 13px;
+  text-transform: uppercase;
+  letter-spacing: 0.14em;
+  color: #cdd3f0;
+}
+
+.hero-status-pill {
+  font-size: 11px;
+  padding: 4px 10px;
+  border-radius: 999px;
+  background: rgba(21, 128, 61, 0.18);
+  border: 1px solid rgba(34, 197, 94, 0.6);
+  color: #bef264;
+}
+
+.hero-panel-grid {
+  display: grid;
+  grid-template-columns: 1.1fr 1fr;
+  gap: 10px;
+  font-size: 12px;
+  color: #c5c9e4;
+}
+
+.hero-panel-metric-label {
+  font-size: 11px;
+  text-transform: uppercase;
+  letter-spacing: 0.12em;
+  color: #98a2c9;
+}
+
+.hero-panel-metric-value {
+  font-size: 20px;
+}
+
+.hero-panel-alert {
+  font-size: 12px;
+  padding: 6px 8px;
+  border-radius: 8px;
+  background: rgba(248, 250, 252, 0.03);
+  border: 1px solid rgba(148, 163, 184, 0.35);
+}
+
+/* Content sections */
+
+.content {
+  padding: 26px 32px 36px;
+}
+
+.content-inner {
+  max-width: 1080px;
+  margin: 0 auto;
+}
+
+/* Section header */
+
+.section-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 14px;
+}
+
+.section-title {
+  margin: 0;
+  font-size: 18px;
+}
+
+.section-sub {
+  margin: 4px 0 0;
+  font-size: 13px;
+  color: #9ca3c9;
+}
+
+/* Cards */
+
+.card-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+  gap: 16px;
+}
+
+.card {
+  background: #060813;
+  border-radius: 12px;
+  padding: 16px;
+  border: 1px solid #232842;
+  box-shadow: 0 10px 28px rgba(0, 0, 0, 0.6);
+  transition: 0.2s ease;
+}
+
+.card:hover {
+  border-color: #ff7a00;
+  box-shadow: 0 16px 40px rgba(0, 0, 0, 0.8);
+  transform: translateY(-3px);
+}
+
+.card h3 {
+  margin: 0 0 6px;
+  font-size: 15px;
+}
+
+.card p {
+  margin: 0;
+  font-size: 13px;
+  color: #cdd3f0;
+}
+
+.card-meta {
+  margin-top: 8px;
+  font-size: 11px;
+  color: #9ca3c9;
+}
+
+/* Lists & typography */
+
+h2,
+h3 {
+  font-weight: 600;
+}
+
+p {
+  font-size: 14px;
+  line-height: 1.6;
+}
+
+/* Footer */
+
+.site-footer {
+  background: #05060b;
+  border-top: 1px solid #161826;
+  padding: 12px 32px 18px;
+  font-size: 12px;
+  color: #9da3c8;
+}
+
+.footer-inner {
+  max-width: 1080px;
+  margin: 0 auto;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  gap: 8px;
+}
+
+/* News page specific */
+
+.news-list {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  margin-top: 10px;
+}
+
+.news-item {
+  padding: 12px 14px;
+  border-radius: 10px;
+  background: #060813;
+  border: 1px solid #252a42;
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.news-item-title {
+  font-size: 15px;
+  margin: 0;
+}
+
+.news-item-meta {
+  font-size: 12px;
+  color: #9ca3c9;
+}
+
+.news-item-link {
+  font-size: 13px;
+  color: #ffb04d;
+  text-decoration: none;
+  margin-top: 4px;
+}
+
+/* Weather & road */
+
+.alert-list {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.alert-item {
+  padding: 12px 14px;
+  border-radius: 10px;
+  border: 1px solid #313552;
+  background: #070915;
+}
+
+.alert-severity-advisory {
+  border-left: 3px solid #0ea5e9;
+}
+
+.alert-severity-watch {
+  border-left: 3px solid #eab308;
+}
+
+.alert-severity-warning {
+  border-left: 3px solid #f97316;
+}
+
+.alert-severity-emergency {
+  border-left: 3px solid #ef4444;
+}
+
+.alert-title {
+  margin: 0;
+  font-size: 14px;
+}
+
+.alert-meta {
+  font-size: 12px;
+  color: #9ca3c9;
+  margin-top: 3px;
+}
+
+.alert-body {
+  font-size: 13px;
+  margin-top: 5px;
+}
+
+/* Departments */
+
+.department-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+  gap: 14px;
+}
+
+.department-card {
+  padding: 14px;
+  border-radius: 10px;
+  background: #060813;
+  border: 1px solid #252a42;
+}
+
+.department-card h3 {
+  margin: 0 0 4px;
+  font-size: 15px;
+}
+
+.department-card p {
+  margin: 0;
+  font-size: 13px;
+  color: #cdd3f0;
+}
+
+/* ================================
+   ADMIN PAGES – MODERN GOV + TERMINAL HYBRID
+   ================================ */
+
+/* Admin background */
+
+body.admin-bg {
+  background: #050507;
+  background-image:
+    linear-gradient(rgba(255,255,255,0.03) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(255,255,255,0.03) 1px, transparent 1px);
+  background-size: 40px 40px;
+  color: #ffffff;
+}
+
+/* Admin login */
+
+.admin-login-wrapper {
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 24px;
+}
+
+.admin-login-card {
+  width: 100%;
+  max-width: 380px;
+  background: #05070d;
+  border-radius: 12px;
+  border: 1px solid #26293b;
+  box-shadow: 0 18px 42px rgba(0, 0, 0, 0.85);
+  padding: 20px 22px 18px;
+}
+
+.admin-login-header {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  margin-bottom: 14px;
+}
+
+.admin-login-seal {
+  width: 52px;
+  height: 52px;
+}
+
+.admin-login-title {
+  margin: 0;
+  font-size: 16px;
+}
+
+.admin-login-sub {
+  margin: 2px 0 0;
+  font-size: 12px;
+  color: #aeb6d8;
+}
+
+.admin-form {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  margin-top: 4px;
+}
+
+.admin-form-group label {
+  display: block;
+  font-size: 13px;
+  margin-bottom: 4px;
+}
+
+.admin-form-group input {
+  width: 100%;
+  padding: 8px 10px;
+  border-radius: 6px;
+  border: 1px solid #2a2a3a;
+  background: #030309;
+  color: #ffffff;
+  font-size: 13px;
+}
+
+.admin-form-group input:focus {
+  border-color: #ff7a00;
+  outline: none;
+}
+
+.admin-login-btn {
+  margin-top: 4px;
+  width: 100%;
+  padding: 9px;
+  border-radius: 7px;
+  border: 1px solid #ff7a00;
+  background: #ff7a00;
+  color: #050509;
+  font-weight: 600;
+  font-size: 13px;
+  cursor: pointer;
+  transition: 0.2s ease;
+}
+
+.admin-login-btn:hover {
+  background: #ff8f26;
+}
+
+.admin-login-error {
+  display: none;
+  margin-top: 8px;
+  font-size: 12px;
+  color: #fecaca;
+  background: rgba(127, 29, 29, 0.4);
+  border-radius: 6px;
+  padding: 6px 8px;
+}
+
+/* Admin dashboard */
+
+.admin-header {
+  background: #06070d;
+  border-bottom: 1px solid #1d1d26;
+  padding: 12px 24px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.admin-header-inner {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.admin-seal {
+  width: 44px;
+  height: 44px;
+}
+
+.admin-site-title {
+  font-size: 16px;
+  margin: 0;
+}
+
+.admin-site-sub {
+  margin: 2px 0 0;
+  font-size: 12px;
+  color: #aeb6d8;
+}
+
+.admin-logout-btn {
+  background: #101018;
+  border: 1px solid #262636;
+  padding: 6px 12px;
+  border-radius: 999px;
+  color: #ffffff;
+  font-size: 12px;
+  cursor: pointer;
+  transition: 0.2s ease;
+}
+
+.admin-logout-btn:hover {
+  background: #181828;
+  border-color: #ff7a00;
+}
+
+.admin-dashboard-main {
+  display: grid;
+  grid-template-columns: 240px 1fr;
+  min-height: calc(100vh - 70px);
+}
+
+.admin-sidebar {
+  background: #050509;
+  border-right: 1px solid #1d1d26;
+  padding: 16px 14px;
+}
+
+.admin-nav-list {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.admin-nav-link {
+  display: block;
+  padding: 8px 10px;
+  border-radius: 7px;
+  font-size: 13px;
+  color: #d0d0e4;
+  text-decoration: none;
+  border: 1px solid transparent;
+  transition: 0.2s ease;
+}
+
+.admin-nav-link:hover {
+  background: #101018;
+  border-color: #262636;
+}
+
+.admin-nav-link.active {
+  background: #101018;
+  border-color: #ff7a00;
+  color: #ffb04d;
+}
+
+.admin-dashboard-content {
+  padding: 20px 26px;
+}
+
+.admin-dashboard-content h2,
+.admin-dashboard-content h3 {
+  font-family: "JetBrains Mono", "Fira Code", monospace;
+}
+
+/* Admin cards */
+
+.admin-panels {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+  gap: 14px;
+  margin-top: 10px;
+}
+
+.admin-panel-card {
+  background: #060813;
+  border: 1px solid #24283c;
+  border-radius: 10px;
+  padding: 14px;
+  transition: 0.2s ease;
+}
+
+.admin-panel-card:hover {
+  border-color: #ff7a00;
+  box-shadow: 0 12px 28px rgba(0, 0, 0, 0.8);
+  transform: translateY(-3px);
+}
+
+.admin-panel-card h3 {
+  margin: 0 0 4px;
+  font-size: 14px;
+}
+
+.admin-panel-card p {
+  margin: 0;
+  font-size: 13px;
+  color: #cdd3f0;
+}
+
+/* Press release generator */
+
+.press-form {
+  margin-top: 8px;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.press-form-group label {
+  font-size: 13px;
+  margin-bottom: 2px;
+  display: block;
+}
+
+.press-form-group input,
+.press-form-group textarea,
+.press-form-group select {
+  width: 100%;
+  padding: 8px 10px;
+  border-radius: 6px;
+  border: 1px solid #2a2a3a;
+  background: #030309;
+  color: #ffffff;
+  font-size: 13px;
+}
+
+.press-form-group textarea {
+  min-height: 120px;
+  resize: vertical;
+}
+
+.press-form-group input:focus,
+.press-form-group textarea:focus,
+.press-form-group select:focus {
+  border-color: #ff7a00;
+  outline: none;
+}
+
+.press-generate-btn {
+  margin-top: 4px;
+  padding: 8px 14px;
+  border-radius: 7px;
+  border: 1px solid #ff7a00;
+  background: #ff7a00;
+  color: #050509;
+  font-size: 13px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: 0.2s ease;
+}
+
+.press-generate-btn:hover {
+  background: #ff8f26;
+}
+
+.press-output-section {
+  margin-top: 16px;
+}
+
+.press-output-section h3 {
+  margin-bottom: 6px;
+}
+
+#pr-output {
+  width: 100%;
+  min-height: 220px;
+  background: #050507;
+  color: #eaeafb;
+  border-radius: 8px;
+  border: 1px solid #2a2a3a;
+  padding: 10px;
+  font-family: "JetBrains Mono", monospace;
+  font-size: 12px;
+  line-height: 1.45;
+}
+
+/* Responsive */
+
+@media (max-width: 900px) {
+  .hero-inner {
+    grid-template-columns: 1fr;
+  }
+  .site-header {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 12px;
+  }
+  .site-nav {
+    flex-wrap: wrap;
+  }
+  .admin-dashboard-main {
+    grid-template-columns: 1fr;
+  }
+  .admin-sidebar {
+    border-right: none;
+    border-bottom: 1px solid #1d1d26;
+  }
+}
