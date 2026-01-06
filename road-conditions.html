@@ -5,6 +5,18 @@
   <title>Road Conditions – Orange County, FL</title>
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <link rel="stylesheet" href="style.css">
+
+  <style>
+    /* NAVBAR FIX — prevents wrapping & reordering */
+    .nav-links {
+      white-space: nowrap;
+      flex-wrap: nowrap !important;
+      overflow-x: auto;
+      scrollbar-width: none;
+    }
+    .nav-links::-webkit-scrollbar { display: none; }
+    .nav-links a { white-space: nowrap; }
+  </style>
 </head>
 
 <body class="gov-bg fade-in">
