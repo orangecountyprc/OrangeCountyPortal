@@ -1,0 +1,176 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Orange County Official Portal</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="style.css">
+</head>
+
+<body class="gov-bg fade-in">
+
+  <!-- NAVIGATION -->
+  <header class="navbar">
+  <div id="countyAnnouncement" class="announcement-bar slide-down" style="display:none;">
+  <p id="announcementText"></p>
+  <button id="announcementClose" class="announcement-close">×</button>
+</div>
+    <div class="nav-logo">
+      <img src="images/orange-county-seal.png" class="nav-seal">
+      Orange County, FL
+    </div>
+    <nav class="nav-links">
+      <a href="orange-county-official-portal.html" class="active">Home</a>
+      <a href="departments.html">Departments</a>
+      <a href="news.html">News</a>
+      <a href="weather-alerts.html">Weather Alerts</a>
+      <a href="road-conditions.html">Road Conditions</a>
+    </nav>
+  </header>
+
+  <!-- HERO SECTION -->
+  <section class="hero">
+    <div class="hero-overlay"></div>
+    <div class="hero-content">
+      <img src="images/orange-county-seal.png" class="hero-seal">
+      <h1>Orange County, Florida</h1>
+      <p class="hero-sub">Official Government Information & Public Services</p>
+    </div>
+  </section>
+
+  <!-- QUICK ACCESS -->
+  <section class="quick-access">
+    <div class="container">
+      <h2 class="section-title">County Services</h2>
+
+      <div class="quick-grid">
+        <a href="departments.html" class="quick-card">
+          <h3>Departments</h3>
+          <p>View all county departments and public service divisions.</p>
+        </a>
+
+        <a href="news.html" class="quick-card">
+          <h3>Press Releases</h3>
+          <p>Official statements and updates from county agencies.</p>
+        </a>
+
+        <a href="weather-alerts.html" class="quick-card">
+          <h3>Weather Alerts</h3>
+          <p>Severe weather warnings and emergency notifications.</p>
+        </a>
+
+        <a href="road-conditions.html" class="quick-card">
+          <h3>Road Conditions</h3>
+          <p>Closures, construction, and traffic impact updates.</p>
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- NEWS PREVIEW -->
+  <section class="preview-section">
+    <div class="container">
+      <h2 class="section-title">Latest News</h2>
+      <div id="newsPreview" class="preview-grid"></div>
+      <a href="news.html" class="btn-primary preview-btn">View All News</a>
+    </div>
+  </section>
+
+  <!-- WEATHER PREVIEW -->
+  <section class="preview-section">
+    <div class="container">
+      <h2 class="section-title">Weather & Emergency Alerts</h2>
+      <div id="weatherPreview" class="preview-grid"></div>
+      <a href="weather-alerts.html" class="btn-primary preview-btn">View Alerts</a>
+    </div>
+  </section>
+
+  <!-- ROAD CONDITIONS PREVIEW -->
+  <section class="preview-section">
+    <div class="container">
+      <h2 class="section-title">Road Conditions</h2>
+      <div id="roadPreview" class="preview-grid"></div>
+      <a href="road-conditions.html" class="btn-primary preview-btn">View All Conditions</a>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer class="footer">
+    <div class="footer-content">
+      <p>© Orange County Government, Florida</p>
+      <img src="images/orange-county-seal.png" class="footer-seal">
+    </div>
+  </footer>
+
+  <script>
+    // Load News Preview
+    fetch("data/news.json")
+      .then(res => res.json())
+      .then(data => {
+        const preview = document.getElementById("newsPreview");
+        const latest = data.slice(0, 3);
+
+        latest.forEach(item => {
+          const date = new Date(item.date).toLocaleDateString("en-US", {
+            year: "numeric",
+            month: "long",
+            day: "numeric"
+          });
+
+          const card = document.createElement("a");
+          card.href = "press/" + item.file;
+          card.className = "preview-card";
+
+          card.innerHTML = `
+            <p class="preview-date">${date}</p>
+            <h3 class="preview-title">${item.title}</h3>
+            <p class="preview-dept">${item.department}</p>
+          `;
+
+          preview.appendChild(card);
+        });
+      });
+
+    // Load Weather Alerts Preview
+    fetch("data/weather.json")
+      .then(res => res.json())
+      .then(alerts => {
+        const preview = document.getElementById("weatherPreview");
+        const latest = alerts.slice(0, 2);
+
+        latest.forEach(alert => {
+          const card = document.createElement("div");
+          card.className = "preview-card";
+
+          card.innerHTML = `
+            <h3 class="preview-title">${alert.title}</h3>
+            <p class="preview-dept">${alert.type}</p>
+          `;
+
+          preview.appendChild(card);
+        });
+      });
+
+    // Load Road Conditions Preview
+    fetch("data/closures.json")
+      .then(res => res.json())
+      .then(closures => {
+        const preview = document.getElementById("roadPreview");
+        const latest = closures.slice(0, 2);
+
+        latest.forEach(item => {
+          const card = document.createElement("div");
+          card.className = "preview-card";
+
+          card.innerHTML = `
+            <h3 class="preview-title">${item.road}</h3>
+            <p class="preview-dept">${item.status}</p>
+          `;
+
+          preview.appendChild(card);
+        });
+      });
+  </script>
+
+</body>
+</html>
