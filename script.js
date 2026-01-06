@@ -296,10 +296,10 @@ const entry = {
   summary,
   body,
   file: filename,
-  html // <-- THIS IS THE FIX
+  html // <-- REQUIRED
 };
 
-  publishPressRelease(entry);
+publishPressRelease(entry);
 }
 
 // =========================
@@ -331,4 +331,5 @@ document.addEventListener("DOMContentLoaded", function () {
   initWeatherPage();
   ocInitPressReleaseGenerator();
 });
+
 
