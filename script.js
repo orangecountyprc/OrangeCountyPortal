@@ -49,7 +49,6 @@ function initAnnouncementBar() {
 
   if (!bar || !text || !closeBtn) return;
 
-  // Cache-busted fetch to avoid stale announcements
   fetch("data/announcement.json?nocache=" + Date.now())
     .then(res => res.json())
     .then(data => {
@@ -84,7 +83,6 @@ function initNewsPage() {
   const container = document.getElementById("newsList");
   if (!container) return;
 
-  // Cache-busted fetch so Latest Releases always reflect the current news.json
   fetch("data/news.json?nocache=" + Date.now())
     .then(res => res.json())
     .then(items => {
@@ -94,7 +92,6 @@ function initNewsPage() {
         return;
       }
 
-      // Sort newest first
       items.sort((a, b) => new Date(b.date) - new Date(a.date));
 
       items.forEach(item => {
@@ -134,7 +131,6 @@ function initWeatherPage() {
   const container = document.getElementById("weatherAlertsList");
   if (!container) return;
 
-  // Cache-busted fetch so weather alerts update immediately
   fetch("data/weather.json?nocache=" + Date.now())
     .then(res => res.json())
     .then(items => {
@@ -299,7 +295,7 @@ ${formatBodyToParagraphs(body)}
     summary,
     body,
     file: filename,
-    html // full HTML document sent to Worker
+    html
   };
 
   publishPressRelease(entry);
@@ -324,7 +320,7 @@ function formatBodyToParagraphs(text) {
 }
 
 // =========================
-— GLOBAL INIT
+// GLOBAL INIT
 // =========================
 
 document.addEventListener("DOMContentLoaded", function () {
