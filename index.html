@@ -8,6 +8,7 @@
 </head>
 
 <body class="gov-bg fade-in">
+<div class="site-wrapper">
 
   <!-- NAVIGATION -->
   <header class="navbar">
@@ -97,82 +98,15 @@
   </section>
 
   <!-- FOOTER -->
-  <footer class="footer">
-    <div class="footer-content">
-      <p>© Orange County Government, Florida</p>
-      <img src="images/orange-county-seal.png" class="footer-seal">
+  <footer class="site-footer">
+    <div class="footer-inner">
+      <span>© Orange County Government, Florida</span>
+      <span>Public Information Office · 201 S. Rosalind Ave, Orlando, FL</span>
     </div>
   </footer>
 
-  <script>
-    // Load News Preview
-    fetch("data/news.json")
-      .then(res => res.json())
-      .then(data => {
-        const preview = document.getElementById("newsPreview");
-        const latest = data.slice(0, 3);
+</div> <!-- end .site-wrapper -->
 
-        latest.forEach(item => {
-          const date = new Date(item.date).toLocaleDateString("en-US", {
-            year: "numeric",
-            month: "long",
-            day: "numeric"
-          });
-
-          const card = document.createElement("a");
-          card.href = "press/" + item.file;
-          card.className = "preview-card";
-
-          card.innerHTML = `
-            <p class="preview-date">${date}</p>
-            <h3 class="preview-title">${item.title}</h3>
-            <p class="preview-dept">${item.department}</p>
-          `;
-
-          preview.appendChild(card);
-        });
-      });
-
-    // Load Weather Alerts Preview
-    fetch("data/weather.json")
-      .then(res => res.json())
-      .then(alerts => {
-        const preview = document.getElementById("weatherPreview");
-        const latest = alerts.slice(0, 2);
-
-        latest.forEach(alert => {
-          const card = document.createElement("div");
-          card.className = "preview-card";
-
-          card.innerHTML = `
-            <h3 class="preview-title">${alert.title}</h3>
-            <p class="preview-dept">${alert.type}</p>
-          `;
-
-          preview.appendChild(card);
-        });
-      });
-
-    // Load Road Conditions Preview
-    fetch("data/closures.json")
-      .then(res => res.json())
-      .then(closures => {
-        const preview = document.getElementById("roadPreview");
-        const latest = closures.slice(0, 2);
-
-        latest.forEach(item => {
-          const card = document.createElement("div");
-          card.className = "preview-card";
-
-          card.innerHTML = `
-            <h3 class="preview-title">${item.road}</h3>
-            <p class="preview-dept">${item.status}</p>
-          `;
-
-          preview.appendChild(card);
-        });
-      });
-  </script>
-
+<script src="script.js"></script>
 </body>
 </html>
