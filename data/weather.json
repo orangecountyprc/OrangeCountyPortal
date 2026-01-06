@@ -1,16 +1,7 @@
-[
-  {
-    "title": "Severe Thunderstorm Warning",
-    "type": "Weather Alert",
-    "severity": "Severe",
-    "time": "Issued 3:42 PM",
-    "description": "Strong thunderstorms capable of producing damaging winds and hail are moving through central Orange County."
-  },
-  {
-    "title": "Heat Advisory",
-    "type": "Public Safety Advisory",
-    "severity": "Moderate",
-    "time": "Issued 11:00 AM",
-    "description": "Heat index values may reach 108°F this afternoon. Stay hydrated and limit outdoor activity."
-  }
-]
+{
+  "title": "Severe Thunderstorm Warning",
+  "type": "Weather Alert",
+  "severity": "severe",
+  "time": "Issued 4:28 PM",
+  "description": "A dangerous thunderstorm is moving through Orange County with damaging winds over 60 mph, large hail, and frequent lightning. Seek sturdy shelter immediately and avoid travel until conditions improve."
+}
