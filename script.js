@@ -168,6 +168,27 @@ function initWeatherPage() {
 }
 
 // =========================
+// WORKER API — Publish Press Release
+// =========================
+
+async function publishPressRelease(entry) {
+  const response = await fetch("https://oc-news-writer.jtho09200920.workers.dev", {
+    method: "POST",
+    headers: { "Content-Type": "application/json" },
+    body: JSON.stringify(entry)
+  });
+
+  if (!response.ok) {
+    const text = await response.text();
+    alert("Failed to publish: " + text);
+    return false;
+  }
+
+  alert("Press release published successfully!");
+  return true;
+}
+
+// =========================
 // PRESS RELEASE GENERATOR (ADMIN)
 // =========================
 
@@ -205,6 +226,25 @@ function ocGeneratePressRelease() {
     month: "long",
     day: "numeric"
   });
+
+  // =========================
+  // AUTO SUMMARY (Option A)
+  // =========================
+  const firstSentenceMatch = body.match(/[^.!?]*[.!?]/);
+  const summary = firstSentenceMatch ? firstSentenceMatch[0].trim() : body.substring(0, 150);
+
+  // =========================
+  // AUTO FILENAME
+  // =========================
+  const slug = title.toLowerCase()
+    .replace(/[^a-z0-9]+/g, "-")
+    .replace(/^-+|-+$/g, "");
+
+  const filename = `${date}-${slug}.html`;
+
+  // =========================
+  // GENERATE HTML
+  // =========================
 
   const html = `<!DOCTYPE html>
 <html lang="en">
@@ -257,7 +297,20 @@ ${formatBodyToParagraphs(body)}
     outputSection.style.display = "block";
   }
 
-  alert("HTML generated. Copy this into a new file under /press/ and update data/news.json.");
+  // =========================
+  // SEND TO WORKER API
+  // =========================
+
+  const entry = {
+    title,
+    department,
+    date: formattedDate,
+    summary,
+    body,
+    file: filename
+  };
+
+  publishPressRelease(entry);
 }
 
 // =========================
